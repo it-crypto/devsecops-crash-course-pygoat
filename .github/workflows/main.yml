@@ -38,12 +38,15 @@ jobs:
   - name: Checkout code
     uses: actions/checkout@v2
 
+  - name: Check Docker Version
+    run: docker --version
+
   - name: Set up Docker
     uses: docker-practice/actions-setup-docker@v1
     with:
       docker_version: '20.10.7'
 
-  - name: Build the image
+  - name: Build Docker image
     run: docker build -f Dockerfile -t myapp:latest .
 
   - name: Docker Scout scan
